@@ -1,0 +1,182 @@
+/* Modern colorful developer theme - Mobile-first */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #8b5cf6, #06b6d4, #f59e0b);
+    --glass-bg: rgba(15, 23, 42, 0.85);
+    --glass-border: rgba(148, 163, 184, 0.4);
+    --accent-glow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #f1f5f9;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* NAVBAR: Vibrant gradient with glow */
+.navbar-dev {
+    background: var(--primary-gradient);
+    box-shadow: var(--accent-glow), 0 8px 32px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(45deg, #ffffff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.95) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.25rem;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+/* Hero section with colorful cards */
+.hero {
+    padding: 4rem 0;
+}
+
+.hero-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--accent-glow), 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(139, 92, 246, 0.4);
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* Colorful buttons */
+.btn-primary-modern {
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 16px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.5);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.7);
+}
+
+.btn-primary-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary-modern:hover::before {
+    left: 100%;
+}
+
+.btn-secondary-modern {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: 16px;
+    padding: 0.75rem 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.btn-secondary-modern:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(139, 92, 246, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Form styling */
+.form-control-modern {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    color: #f9fafb;
+    padding: 0.45rem 0.85rem;      /* was ~0.75rem, now slimmer */
+    font-size: 0.9rem;             /* slightly smaller text */
+    height: 2.4rem;                /* consistent height for inputs */
+    backdrop-filter: blur(10px);
+}
+
+.form-control-modern[type="textarea"],
+textarea.form-control-modern {
+    height: auto;                  /* let textareas grow naturally */
+    min-height: 140px;
+    padding-top: 0.7rem;
+}
+.form-label {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+    color: #e5e7eb;
+}
+
+#ask .row.g-3 {
+    row-gap: 0.75rem;              /* slightly tighter row spacing */
+}
+
+/* Cards with colorful accents */
+.card-modern {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+
+.card-modern:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: var(--accent-glow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+

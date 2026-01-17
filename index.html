@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>DevSupport Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Your colorful modern styles -->
+    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Bootstrap JS (for navbar collapse) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg navbar-dark navbar-dev">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">DevSupport Hub</a>
+     <button class="btn-primary-modern">Send query</button>
+     <button class="btn-secondary-modern">Clear</button>
+
+      <nav id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ask">Ask a question</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-4">
+    <!-- Hero -->
+    <section class="row align-items-center mb-4">
+      <div class="col-md-7 mb-3 mb-md-0">
+        <span class="badge-dev">
+          Live · Developer portal
+        </span>
+
+        <h1 class="display-5 fw-semibold text-light">
+          A vibrant support hub for your developer community.
+        </h1>
+        <p class="lead text-secondary">
+          Collect questions, bug reports, and ideas from your users in one elegant,
+          responsive interface.
+        </p>
+      </div>
+      <div class="col-md-5">
+        <div class="glass-card p-3 text-start">
+          <h2 class="h5 text-info mb-2">Live support snapshot</h2>
+          <p class="small text-muted mb-2">
+            Use this card to highlight status, response times, or a featured announcement.
+          </p>
+          <span class="badge rounded-pill bg-success-subtle text-success-emphasis">
+            Average response: &lt; 24h
+          </span>
+        </div>
+      </div>
+    </section>
+
+<!-- Query form - CORRECTED -->
+<section id="ask" class="mb-4">
+  <div class="glass-card p-4">
+    <h2 class="h4 text-warning mb-3">Submit a developer query</h2>
+    <form>
+      <div class="row g-3">
+        <!-- Name (Column 1) -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Your name</label>
+          <input type="text" class="form-control-modern" name="name" required />
+        </div>
+        
+        <!-- Email (Column 2) -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Contact email</label>
+          <input type="email" class="form-control-modern" name="email" required />
+        </div>
+        
+        <!-- Product (Column 1 - second row) -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Product / SDK / service</label>
+          <input type="text" class="form-control-modern" name="product" required />
+        </div>
+        
+        <!-- Category (Column 2 - second row) - YOU'RE MISSING THIS -->
+        <div class="col-md-6">
+          <label class="form-label text-light">Query type</label>
+          <select class="form-control-modern" name="category" required>
+            <option value="">Select...</option>
+            <option value="bug">Bug report</option>
+            <option value="api">API/SDK question</option>
+            <option value="integration">Integration help</option>
+            <option value="feature">Feature request</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <!-- Details (Full width - spans both columns) -->
+        <div class="col-12">
+          <label class="form-label text-light">Details</label>
+          <textarea class="form-control-modern" name="details" rows="4" required 
+            placeholder="Include code snippets, error messages, request IDs, exact steps to reproduce..."></textarea>
+          <div class="form-text text-info mt-1">
+            More detail = faster help
+          </div>
+        </div>
+      </div>
+      
+      <!-- Buttons (Full width) -->
+      <div class="mt-4 d-flex gap-2 flex-wrap">
+        <button type="submit" class="btn btn-primary-modern">Send query</button>
+        <button type="reset" class="btn btn-secondary-modern">Clear form</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+<style>
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transform: translateX(400px);
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.notification-success { background: linear-gradient(135deg, #10b981, #059669); }
+.notification-error { background: linear-gradient(135deg, #ef4444, #dc2626); }
+
+@keyframes slideIn {
+    to { transform: translateX(0); }
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.error { border-color: #f87171 !important; }
+.loading { opacity: 0.7; }
+
+/* Loading body effect */
+body.loaded .hero-card { animation: fadeInUp 0.6s ease forwards; }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<!-- Your app JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
