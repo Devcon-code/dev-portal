@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
       email,
       product,
       category,
-      details: details?.slice(0, 200) // truncate long text
+      details: details?.slice(0, 200)
     });
 
     if (!name || !email || !product || !details) {
@@ -27,15 +27,13 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ success: false, message: "Missing required fields" })
       };
     }
-    const response = {
-      success: true,
-      message: "Query received! Check Netlify logs.",
-      data: {name, email, product, category}  // ← See this in browser dev tools
-    };
+
+    // ✅ FIXED: Single response object with data visible in browser
     const response = {
       success: true,
       message: "Query submitted successfully! We'll respond within 24h.",
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      data: {name, email, product, category}  // ← Shows in DevTools response
     };
 
     console.log("Query accepted:", { email, product, category });
