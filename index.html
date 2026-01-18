@@ -61,11 +61,13 @@
       </div>
     </section>
 
-<!-- Query form - CORRECTED -->
+<!-- Query form -->
 <section id="ask" class="mb-4">
   <div class="glass-card p-4">
     <h2 class="h4 text-warning mb-3">Submit a developer query</h2>
-    <form>
+    <form name="dev-support" netlify data-netlify="true" method="POST">
+      <input type="hidden" name="form-name" value="dev-support" />
+      
       <div class="row g-3">
         <!-- Name (Column 1) -->
         <div class="col-md-6">
@@ -85,7 +87,7 @@
           <input type="text" class="form-control-modern" name="product" required />
         </div>
         
-        <!-- Category (Column 2 - second row) - YOU'RE MISSING THIS -->
+        <!-- Category (Column 2 - second row) -->
         <div class="col-md-6">
           <label class="form-label text-light">Query type</label>
           <select class="form-control-modern" name="category" required>
@@ -98,18 +100,16 @@
           </select>
         </div>
         
-        <!-- Details (Full width - spans both columns) -->
+        <!-- Details (Full width) -->
         <div class="col-12">
           <label class="form-label text-light">Details</label>
           <textarea class="form-control-modern" name="details" rows="4" required 
-            placeholder="Include code snippets, error messages, request IDs, exact steps to reproduce..."></textarea>
-          <div class="form-text text-info mt-1">
-            More detail = faster help
-          </div>
+            placeholder="Include code snippets, error messages, request IDs..."></textarea>
+          <div class="form-text text-info mt-1">More detail = faster help</div>
         </div>
       </div>
       
-      <!-- Buttons (Full width) -->
+      <!-- Buttons -->
       <div class="mt-4 d-flex gap-2 flex-wrap">
         <button type="submit" class="btn btn-primary-modern">Send query</button>
         <button type="reset" class="btn btn-secondary-modern">Clear form</button>
