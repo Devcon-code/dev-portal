@@ -6,7 +6,5 @@
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "@emailjs/nodejs": "^1.0.1"
-  }
+  "dependencies": {}
 }
