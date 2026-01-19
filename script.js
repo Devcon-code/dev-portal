@@ -1,3 +1,8 @@
+
+<!-- TEMP: Disable ALL JS for testing -->
+<!-- <script src="script.js"></script> -->
+
+
 class DevPortal {
     constructor() {
         this.form = document.querySelector('form');

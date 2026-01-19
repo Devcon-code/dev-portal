@@ -1,52 +1,33 @@
-exports.handler = async (event, context) => {
-  if (event.httpMethod !== "POST") {
+// netlify/functions/queries.js
+
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      body: JSON.stringify({ error: "Method not allowed" })
+      body: JSON.stringify({ error: 'Method Not Allowed' }),
     };
   }
 
   try {
-    const data = JSON.parse(event.body || "{}");
-    const { name, email, product, category, details } = data;
+    const formData = JSON.parse(event.body);
 
-    // 🔹 Log a readable entry
-    console.log("QUERY:", JSON.stringify({name, email, product, category, details: details.substring(0,100)}));
-    console.log("New query received:", {
-      name,
-      email,
-      product,
-      category,
-      details: details?.slice(0, 200)
-    });
+    // Log for debugging in Netlify function logs
+    console.log('Query received:', formData);
 
-    if (!name || !email || !product || !details) {
-      console.log("Validation failed for:", data);
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ success: false, message: "Missing required fields" })
-      };
-    }
-
-    // ✅ FIXED: Single response object with data visible in browser
-    const response = {
-      success: true,
-      message: "Query submitted successfully! We'll respond within 24h.",
-      timestamp: new Date().toISOString(),
-      data: {name, email, product, category}  // ← Shows in DevTools response
-    };
-
-    console.log("Query accepted:", { email, product, category });
+    // You can add any non-email logic here later (logging, forwarding to a DB, etc.)
 
     return {
       statusCode: 200,
-      body: JSON.stringify(response)
+      body: JSON.stringify({
+        success: true,
+        message: 'Query received by backend',
+      }),
     };
-  } catch (err) {
-    console.error("Function error:", err);
+  } catch (error) {
+    console.error('Handler error:', error);
     return {
-      statusCode: 500,
-      body: JSON.stringify({ success: false, message: "Server error" })
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid request body' }),
     };
   }
 };
