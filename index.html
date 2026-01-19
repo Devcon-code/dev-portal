@@ -15,104 +15,142 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
+<!-- FROM: -->
 <body>
-  <header class="navbar navbar-expand-lg navbar-dark navbar-dev">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">DevSupport Hub</a>
-     <button class="btn-primary-modern">Send query</button>
-     <button class="btn-secondary-modern">Clear</button>
-
-      <nav id="mainNav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
-          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ask">Ask a question</a></li>
-        </ul>
-      </nav>
+<header class="navbar navbar-expand-lg navbar-dark navbar-dev">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Bharat Local App Support Hub</a>
+    
+    <!-- Toggle button -->
+    <div class="theme-toggle-wrapper">
+      <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle dark/light mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
     </div>
-  </header>
 
-  <main class="container py-4">
-    <!-- Hero -->
-    <section class="row align-items-center mb-4">
-      <div class="col-md-7 mb-3 mb-md-0">
-        <span class="badge-dev">
-          Live · Developer portal
-        </span>
+    <nav id="mainNav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ask">Get help</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-        <h1 class="display-5 fw-semibold text-light">
-          A vibrant support hub for your developer community.
-        </h1>
-        <p class="lead text-secondary">
-          Collect questions, bug reports, and ideas from your users in one elegant,
-          responsive interface.
+<main class="container py-4">
+  <!-- Hero -->
+  <section class="row align-items-center mb-4">
+    <div class="col-md-7 mb-3 mb-md-0">
+      <span class="badge-dev">
+        Live · Bharat Local App
+      </span>
+
+      <h1 class="display-5 fw-semibold text-light">
+        A vibrant support hub for your Bharat Local App.
+      </h1>
+      <p class="lead text-secondary">
+        Any questions, bug reports, or ideas from our Bharat Local App users are welcomed and encouraged.
+      </p>
+    </div>
+    <div class="col-md-5">
+      <div class="glass-card p-3 text-start">
+        <h2 class="h5 text-info mb-2">Support status</h2>
+        <p class="small text-muted mb-2">
+          Share issues or feedback and we’ll get back to you as quickly as possible.
         </p>
+        <span class="badge rounded-pill bg-success-subtle text-success-emphasis">
+          Typical reply: within 24 hours
+        </span>
       </div>
-      <div class="col-md-5">
-        <div class="glass-card p-3 text-start">
-          <h2 class="h5 text-info mb-2">Live support snapshot</h2>
-          <p class="small text-muted mb-2">
-            Use this card to highlight status, response times, or a featured announcement.
-          </p>
-          <span class="badge rounded-pill bg-success-subtle text-success-emphasis">
-            Average response: &lt; 24h
-          </span>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-<!-- Query form -->
+<!-- Help form -->
 <section id="ask" class="mb-4">
   <div class="glass-card p-4">
-    <h2 class="h4 text-warning mb-3">Submit a developer query</h2>
+    <h2 class="h4 text-warning mb-3">Need help with Bharat Local App?</h2>
+    <p class="text-secondary mb-4">
+      Tell us what went wrong or what you’d like to see improved. We’ll reply to you on your email.
+    </p>
+
     <form name="dev-support" netlify data-netlify="true" method="POST">
       <input type="hidden" name="form-name" value="dev-support" />
       
       <div class="row g-3">
-        <!-- Name (Column 1) -->
-        <div class="col-md-6">
+        <!-- Name -->
+        <div class="col-12 col-md-6">
           <label class="form-label text-light">Your name</label>
-          <input type="text" class="form-control-modern" name="name" required />
+          <input
+            type="text"
+            class="form-control-modern"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
         </div>
         
-        <!-- Email (Column 2) -->
-        <div class="col-md-6">
-          <label class="form-label text-light">Contact email</label>
-          <input type="email" class="form-control-modern" name="email" required />
+        <!-- Email -->
+        <div class="col-12 col-md-6">
+          <label class="form-label text-light">Your email</label>
+          <input
+            type="email"
+            class="form-control-modern"
+            name="email"
+            placeholder="We’ll reply here"
+            required
+          />
         </div>
         
-        <!-- Product (Column 1 - second row) -->
-        <div class="col-md-6">
-          <label class="form-label text-light">Product / SDK / service</label>
-          <input type="text" class="form-control-modern" name="product" required />
-        </div>
-        
-        <!-- Category (Column 2 - second row) -->
-        <div class="col-md-6">
-          <label class="form-label text-light">Query type</label>
+        <!-- Type of issue -->
+        <div class="col-12 col-md-6">
+          <label class="form-label text-light">What is this about?</label>
           <select class="form-control-modern" name="category" required>
-            <option value="">Select...</option>
-            <option value="bug">Bug report</option>
-            <option value="api">API/SDK question</option>
-            <option value="integration">Integration help</option>
-            <option value="feature">Feature request</option>
-            <option value="other">Other</option>
+            <option value="">Choose an option</option>
+            <option value="cant-login">I can’t log in</option>
+            <option value="bug">Something is not working</option>
+            <option value="payment">Payment or order issue</option>
+            <option value="suggestion">Suggestion or feedback</option>
+            <option value="other">Something else</option>
           </select>
         </div>
+
+        <!-- Where in the app -->
+        <div class="col-12 col-md-6">
+          <label class="form-label text-light">Where did this happen?</label>
+          <input
+            type="text"
+            class="form-control-modern"
+            name="screen"
+            placeholder="Example: Home screen, Orders page"
+          />
+        </div>
         
-        <!-- Details (Full width) -->
+        <!-- Details -->
         <div class="col-12">
-          <label class="form-label text-light">Details</label>
-          <textarea class="form-control-modern" name="details" rows="4" required 
-            placeholder="Include code snippets, error messages, request IDs..."></textarea>
-          <div class="form-text text-info mt-1">More detail = faster help</div>
+          <label class="form-label text-light">Please describe the problem or idea</label>
+          <textarea
+            class="form-control-modern"
+            name="details"
+            rows="4"
+            required
+            placeholder="Tell us what you were trying to do, what you expected, and what happened instead."
+          ></textarea>
+          <div class="form-text text-info mt-1">
+            More detail helps us solve your issue faster.
+          </div>
         </div>
       </div>
       
       <!-- Buttons -->
-      <div class="mt-4 d-flex gap-2 flex-wrap">
-        <button type="submit" class="btn btn-primary-modern">Send query</button>
-        <button type="reset" class="btn btn-secondary-modern">Clear form</button>
+      <div class="mt-4 d-flex flex-column flex-sm-row gap-2">
+        <button type="submit" class="btn btn-primary-modern w-100 w-sm-auto">
+          Send to support
+        </button>
+        <button type="reset" class="btn btn-secondary-modern w-100 w-sm-auto">
+          Clear form
+        </button>
       </div>
     </form>
   </div>
@@ -162,9 +200,11 @@ body.loaded .hero-card { animation: fadeInUp 0.6s ease forwards; }
     to { opacity: 1; transform: translateY(0); }
 }
 </style>
-<!-- Your app JavaScript -->
-<!-- <script src="script.js"></script> -->
 
-</body>
+<!-- Your app JavaScript -->
+<script src="script.js"></script>
+
+<!-- TO: (adds default dark theme) -->
+<body class="theme-dark">
 
 </html>
